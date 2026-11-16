@@ -1,0 +1,270 @@
+@use "../abstracts/" as *;
+
+
+#Shopping-Cart {
+
+    .container {
+        .title {
+            color: $firstColor;
+        }
+
+        .content {
+
+            .counters {
+                .box {
+                    .item {
+                        background: $firstColor;
+                        color: #fff;
+                        letter-spacing: 1px;
+
+                        @include respond(350) {
+                            max-width: 380px;
+                            margin: auto;
+                        }
+
+                        @include respond(850) {
+                            max-width: initial;
+                        }
+
+                        h4 {
+                            margin-bottom: 0;
+
+                            @include respond(350) {
+                                font-size: 18px;
+                            }
+
+                            @include respond(850) {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .products {
+                .product {
+
+                    &.remove {
+                        transform: scale(0);
+                        opacity: 0;
+                        transition: 0.5s;
+                    }
+
+                    .item {
+                        background: #fff;
+                        box-shadow: 0 0 5px 1px $secondColor,
+                            0 0 7px 1px $secondColor;
+
+                        @include respond(350) {
+                            max-width: 300px;
+                            margin: auto;
+                        }
+
+                        @include respond(650) {
+                            max-width: initial;
+                        }
+
+                        @include respond(1050) {
+                            max-width: 330px;
+                        }
+
+                        .image {
+                            background: radial-gradient(circle at center, #fff 20%, $secondColor);
+                            box-shadow: 0px 1px 5px $firstColorAlpha;
+                            overflow: hidden;
+
+                            img {
+                                aspect-ratio: 1 / 1;
+                                transform: scale(0.6);
+                                transition: 0.5s;
+
+                                filter: drop-shadow(6px 6px 6px #00000069);
+
+                                @include respond(350) {
+                                    max-width: 70%;
+                                    transform: scale(0.7);
+                                }
+
+                                @include respond(1050) {
+                                    max-width: 100%;
+                                    transform: scale(0.6);
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            .image {
+                                img {
+                                    transform: scale(0.8);
+
+                                    @include respond(350) {
+                                        transform: scale(0.9);
+                                    }
+
+                                    @include respond(1050) {
+                                        transform: scale(0.8);
+                                    }
+                                }
+                            }
+                        }
+
+                        .details {
+                            color: $firstColor;
+
+                            .name {
+                                letter-spacing: 0.5px;
+                            }
+
+                            .s-row {
+                                @include flex($jc: space-between);
+                                border: 2px solid $secondColor;
+                                font-style: italic;
+
+                                @include respond(350) {
+                                    font-size: 14px;
+                                }
+
+                                @include respond(850) {
+                                    font-size: initial;
+                                }
+
+                                &:nth-child(3) {
+                                    .value {
+                                        font-weight: 800;
+                                    }
+                                }
+
+                                .label {
+                                    font-weight: 800;
+                                    letter-spacing: 0.5px;
+                                }
+
+                                .value {
+                                    font-weight: 600;
+                                }
+
+                                button {
+                                    @include distance(40px, 40px);
+                                    @include flex();
+                                    font-size: 14px;
+
+                                    &:disabled {
+                                        background: #6f6f6f82;
+                                        border: none;
+                                    }
+
+                                    i {
+                                        transition: 0.3s;
+                                    }
+
+                                    &:hover {
+                                        i {
+                                            transform: rotate(180deg) scale(1.2);
+                                        }
+                                    }
+
+                                    @include respond(350) {
+                                        @include distance(30px, 30px);
+                                    }
+
+                                    @include respond(850) {
+                                        @include distance(40px, 40px);
+                                    }
+                                }
+                            }
+
+                            button {
+                                background: $secondColor;
+                                color: $firstColor;
+                                font-weight: 700;
+                                font-size: 18px;
+                                letter-spacing: 0.5px;
+                                box-shadow: 1px 1px 5px $firstColorAlpha;
+
+                                transition: 0.5s;
+
+                                &.delete:hover {
+                                    transform: scale(1.05);
+                                    letter-spacing: 2px;
+                                }
+
+                                @include respond(350) {
+                                    font-size: 16px;
+                                }
+
+                                @include respond(850) {
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                .empty-state {
+                    color: $firstColor;
+
+                    img {
+                        max-width: 85%;
+
+                        @include respond(350) {
+                            max-width: 250px;
+                        }
+
+                        @include respond(650) {
+                            max-width: 350px;
+                        }
+                    }
+
+                    h3 {
+                        @include respond(350) {
+                            font-size: 20px;
+                        }
+
+                        @include respond(650) {
+                            font-size: 28px;
+                        }
+                    }
+
+                    p {
+                        font-weight: 600;
+                        font-size: 18px;
+
+                        @include respond(350) {
+                            font-size: 16px;
+                        }
+                        @include respond(650) {
+                            font-size: 18px;
+                        }
+                    }
+
+                    button {
+                        background: $secondColor;
+                        color: $firstColor;
+                        font-weight: 600;
+                        font-size: 18px;
+                        letter-spacing: 0.5px;
+                        box-shadow: 1px 1px 5px $firstColorAlpha;
+
+                        transition: 0.5s;
+
+                        &:hover {
+                            transform: scale(1.05);
+                            letter-spacing: 2px;
+                        }
+
+                        @include respond(350) {
+                            font-size: 16px;
+                        }
+                        @include respond(650) {
+                            font-size: 18px;
+                        }
+
+                    }
+
+
+                }
+            }
+        }
+    }
+}
